@@ -1,0 +1,13 @@
+this project shows that http://issues.gradle.org/browse/GRADLE-1009 is not working :(
+
+run with
+
+  gradle
+
+or (to see the listener works fine)
+
+
+  cd listener
+  mvn clean install
+  cd ../use_of_listener
+  mvn clean test

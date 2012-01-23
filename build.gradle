@@ -1,0 +1,36 @@
+defaultTasks 'build'
+
+allprojects {
+	apply plugin: 'idea';
+}
+
+subprojects {
+  apply plugin: 'java'
+
+  repositories {
+    mavenCentral()
+  }
+
+  dependencies {
+    compile 'org.testng:testng:6.3.1'
+  }
+
+  test {
+    useTestNG()
+      testLogging.showStandardStreams = true
+  }
+}
+project(':use_of_listener') {
+    dependencies {
+        compile project(':listener')
+    }
+     test {
+        useTestNG()
+         testLogging.showStandardStreams = true
+        options {
+                listeners << 'com.practicalunittesting.SampleListener'
+//		useDefaultListeners = false
+      }
+  }
+}
+
